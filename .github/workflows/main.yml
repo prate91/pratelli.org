@@ -1,0 +1,54 @@
+name: Publish
+
+on:
+  push:
+    branches:
+    - main
+  # schedule:
+  #   - cron:  '0 8 * * *'
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+#   - uses: actions/checkout@v3
+#       # with:
+#       #   submodules: true
+
+#     - name: Setup Hugo
+#       uses: peaceiris/actions-hugo@v2.6.0
+#       with:
+#         hugo-version: 'latest'
+#         extended: true
+
+#     - name: Update Hugo Modules
+#       run: hugo mod tidy
+
+#     - name: Setup Node
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: 18
+
+#     - name: Install node modules
+#       run: |
+#         hugo mod npm pack
+#         npm install        
+#     - name: Build
+#       run: hugo --minify
+
+    - name: Deploy
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3 #SamKirkland/FTP-Deploy-Action@2.0.0
+      with:
+        server: ftp.pratelli.org
+        username: prate91@pratelli.org
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /public_html/hugo/
+      # env:
+      #   FTP_SERVER: ftp.pratelli.org
+      #   FTP_USERNAME: prate91@pratelli.org
+      #   FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      #   LOCAL_DIR: ./public
+      #   REMOTE_DIR:  /public_html/hugo/
+      #   ARGS: --delete # will delete files on the server if you've deleted them in git
