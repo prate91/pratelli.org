@@ -43,7 +43,6 @@ jobs:
         server: ftp.pratelli.org
         username: prate91@pratelli.org
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
         server-dir: /public_html/hugo/
       # env:
       #   FTP_SERVER: ftp.pratelli.org
