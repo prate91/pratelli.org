@@ -25,3 +25,8 @@ jobs:
         username: prate91@pratelli.org
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /public_html/hugo/
+        local-dir: ./dist/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
