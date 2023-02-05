@@ -25,7 +25,7 @@ jobs:
         username: prate91@pratelli.org
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /public_html/hugo/
-        local-dir: ./dist/
+        local-dir: ./dist/angular-profile-page/
         exclude: |
           **/.git*
           **/.git*/**
